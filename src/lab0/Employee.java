@@ -35,6 +35,11 @@ public class Employee {
     }
 
     public Employee(String firstName, String lastName, String ssn, Date hireDate, int daysVacation) {
+        if(firstName == null || lastName == null || ssn == null || hireDate == null || ssn.length() != 9)
+        {
+            throw new IllegalArgumentException("You have a non-valid entry");
+        } else {
+        }
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
@@ -55,6 +60,9 @@ public class Employee {
     }
 
     public void setFirstName(String firstName) {
+        if(firstName == null){
+            throw new IllegalArgumentException("Name cannot be blank");
+        }
         this.firstName = firstName;
     }
 
@@ -63,6 +71,7 @@ public class Employee {
     }
 
     public void setHireDate(Date hireDate) {
+        //check if parses to date
         this.hireDate = hireDate;
     }
 
@@ -71,6 +80,9 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
+        if(lastName == null){
+            throw new IllegalArgumentException("Last name cannot be empty");
+        }
         this.lastName = lastName;
     }
 
@@ -79,6 +91,9 @@ public class Employee {
     }
 
     public void setSsn(String ssn) {
+        if(ssn==null || ssn.length() != 9){
+            throw new IllegalArgumentException("Invalid SSN please enter a 9 digit number");
+        }
         this.ssn = ssn;
     }
     
